@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loket Pengajuan Layanan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <span class="mark">LOKET</span>
+    <h1>Pengajuan Layanan Warga</h1>
+  </div>
+  <div class="desk-status"><span class="dot"></span> Loket buka &mdash; entri langsung tersimpan di sesi ini</div>
+</div>
+
+<div class="layout">
+
+  <div class="card form-card">
+    <div class="card-head">
+      <p class="eyebrow">Formulir</p>
+      <h2>Ajukan Layanan Baru</h2>
+    </div>
+    <div id="formMode">Mode edit &mdash; memperbarui data terpilih</div>
+    <form id="formPengajuan" novalidate>
+      <div class="field" id="field-nama">
+        <label for="nama">Nama Pemohon</label>
+        <input type="text" id="nama" placeholder="cth. Siti Aminah">
+        <div class="err">Nama wajib diisi (minimal 3 karakter).</div>
+      </div>
+
+      <div class="field" id="field-nik">
+        <label for="nik">NIK</label>
+        <input type="text" id="nik" placeholder="16 digit NIK" maxlength="16">
+        <div class="err">NIK harus terdiri dari 16 digit angka.</div>
+      </div>
+
+      <div class="field" id="field-layanan">
+        <label for="layanan">Jenis Layanan</label>
+        <select id="layanan">
+          <option value="">Pilih jenis layanan</option>
+          <option>Surat Keterangan Domisili</option>
+          <option>Surat Keterangan Tidak Mampu</option>
+          <option>Pengantar KTP/KK</option>
+          <option>Izin Keramaian</option>
+          <option>Legalisasi Dokumen</option>
+        </select>
+        <div class="err">Pilih salah satu jenis layanan.</div>
+      </div>
+
+      <div class="field" id="field-tanggal">
+        <label for="tanggal">Tanggal Pengajuan</label>
+        <input type="date" id="tanggal">
+        <div class="err">Tanggal pengajuan wajib diisi.</div>
+      </div>
+
+      <div class="field" id="field-keterangan">
+        <label for="keterangan">Keterangan (opsional)</label>
+        <textarea id="keterangan" placeholder="Catatan tambahan untuk petugas..."></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button type="submit" class="btn-primary" id="btnSubmit">Ajukan</button>
+        <button type="button" class="btn-ghost" id="btnBatal">Batal</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="card table-card">
+    <div class="card-head">
+      <h2>Riwayat Pengajuan</h2>
+      <span class="count" id="rowCount">0 pengajuan</span>
+    </div>
+    <div class="table-wrap">
+      <table id="tabelRiwayat">
+        <thead>
+          <tr>
+            <th>No. Tiket</th>
+            <th>Nama</th>
+            <th>NIK</th>
+            <th>Layanan</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyRiwayat">
+          <!-- baris ditambahkan lewat JavaScript -->
+        </tbody>
+      </table>
+      <div class="empty-state" id="emptyState">
+        <span class="glyph">&mdash;</span>
+        <p>Belum ada pengajuan. Isi formulir di sebelah kiri untuk menambah data.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
